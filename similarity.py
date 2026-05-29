@@ -95,23 +95,8 @@ def run_similarity(scenario_path, visitor_path, llm_path):
                     m['s']
                 ])
                 
-        # Output Unmatched CSV
-        matched_o = {m['o'] for m in matches}
         matched_g = {m['g'] for m in matches}
         
-        unmatched_csv_path = f"output/unmatched_{name_lower}.csv"
-        with open(unmatched_csv_path, 'w', newline='', encoding='utf-8') as f:
-            writer = csv.writer(f)
-            writer.writerow(['type', 'id', 'text'])
-            
-            for i, text in enumerate(u_orig):
-                if i not in matched_o:
-                    writer.writerow(['unmatched_original', f'OT{i+1}', text])
-                    
-            for i, text in enumerate(u_gen):
-                if i not in matched_g:
-                    writer.writerow(['unmatched_new_text', f'NT{i+1}', text])
-                    
         # Metrics
         precision = len(matched_g) / len(u_gen) if u_gen else 0
         recall = len(matches) / len(u_orig) if u_orig else 0
@@ -135,7 +120,6 @@ def run_similarity(scenario_path, visitor_path, llm_path):
         results[name] = {
             "matrix_csv": matrix_csv_path,
             "matching_csv": matching_csv_path,
-            "unmatched_csv": unmatched_csv_path,
             "metrics": metrics_dict
         }
 
