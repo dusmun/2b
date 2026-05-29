@@ -1,0 +1,8 @@
+original_id,original_text,new_text_id,new_text,similarity
+OT1,You produce custom chainsaws on demand,NT16,"If yes, the decision ""Chainsaw type?"" is evaluated",0.6420000195503235
+OT2,"Your chainsaws have at least 5 properties such as length of the ""guide bar"" (Schwertlaenge), chain width, electric or motor chainsaw",NT16,"If yes, the decision ""Chainsaw type?"" is evaluated",0.5586000084877014
+OT3,"After your customer told you the properties, you can start ordering the parts from various online sources (in parallel)",NT40,"The process waits for ""Replacement parts received""",0.39149999618530273
+OT4,"After the parts arrive you have to do a manual inspection of all parts, and then assemble the parts",NT40,"The process waits for ""Replacement parts received""",0.5008999705314636
+OT5,"During production, you regularly send updates to your customer",NT24,"The process waits for ""Customer feedback received""",0.4458000063896179
+OT6,After producing the first saw you send it to your customer,NT1,"Process: Chainsaw Manufacturing  The process starts ""Order received""",0.6089000105857849
+OT7,"If he likes it, the rest of his order are produced",NT1,"Process: Chainsaw Manufacturing  The process starts ""Order received""",0.3174999952316284

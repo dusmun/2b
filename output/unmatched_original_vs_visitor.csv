@@ -1,0 +1,38 @@
+type,id,text
+unmatched_new_text,NT2,"The tasks ""Extract chainsaw specifications from order"" and ""Create production order in ERP"" are executed sequentially"
+unmatched_new_text,NT3,The process executes the following branches in parallel
+unmatched_new_text,NT4,"In parallel branch 1: The task ""Order parts from online source #1"" is executed"
+unmatched_new_text,NT5,"The process waits for ""Parts from source #1 received"""
+unmatched_new_text,NT6,"In parallel branch 2: The task ""Order parts from online source #2"" is executed"
+unmatched_new_text,NT7,"The process waits for ""Parts from source #2 received"""
+unmatched_new_text,NT8,"In parallel branch 3: The task ""Order parts from online source #3"" is executed"
+unmatched_new_text,NT9,"The process waits for ""Parts from source #3 received"""
+unmatched_new_text,NT10,The process then waits until all parallel branches are completed
+unmatched_new_text,NT11,"The subprocess ""Manually inspect all parts"" is executed"
+unmatched_new_text,NT12,"Within the subprocess: The step ""Perform visual inspection"" is performed"
+unmatched_new_text,NT13,"The step ""Perform functional test"" is performed"
+unmatched_new_text,NT14,"The step ""Document inspection results"" is performed"
+unmatched_new_text,NT15,"The decision ""All parts passed manual inspection?"" is evaluated"
+unmatched_new_text,NT17,"If Electric, the task ""Install electric motor"" is executed"
+unmatched_new_text,NT18,"Otherwise, the task ""Install combustion engine"" is executed"
+unmatched_new_text,NT19,The process executes the following branches in parallel
+unmatched_new_text,NT20,"In parallel branch 1: The tasks ""Assemble first chainsaw"" and ""Ship first chainsaw to customer"" are executed sequentially"
+unmatched_new_text,NT21,"The process triggers the signal ""First chainsaw shipped"""
+unmatched_new_text,NT22,In parallel branch 2: The process waits for one of the following events to occur
+unmatched_new_text,NT23,"If the event ""First chainsaw shipped"" occurs, the process waits for ""First chainsaw shipped"""
+unmatched_new_text,NT25,"The decision ""Customer approved first chainsaw?"" is evaluated"
+unmatched_new_text,NT26,"If yes, the process executes the following branches in parallel"
+unmatched_new_text,NT27,In parallel branch 1: The process waits for one of the following events to occur
+unmatched_new_text,NT28,"If the event ""1 hour"" occurs, the process waits for ""1 hour"""
+unmatched_new_text,NT29,"If the event ""Remaining chainsaws produced"" occurs, the process waits for ""Remaining chainsaws produced"""
+unmatched_new_text,NT30,"The task ""Ship remaining chainsaws to customer"" is executed"
+unmatched_new_text,NT31,"The process ends ""Order fulfilled"""
+unmatched_new_text,NT32,"In parallel branch 2: The task ""Assemble remaining chainsaws"" is executed"
+unmatched_new_text,NT33,"The process triggers the signal ""Remaining chainsaws produced"""
+unmatched_new_text,NT34,The process then waits until all parallel branches are completed
+unmatched_new_text,NT35,"Otherwise, the task ""Refund customer"" is executed"
+unmatched_new_text,NT36,"The process ends ""Order canceled"""
+unmatched_new_text,NT37,"If the event ""1 hour"" occurs, the process waits for ""1 hour"""
+unmatched_new_text,NT38,The process then waits until all parallel branches are completed
+unmatched_new_text,NT39,"Otherwise, the task ""Order replacement parts"" is executed"
+unmatched_new_text,NT41,The process loops back to the gateway

@@ -1,0 +1,41 @@
+Process: Chainsaw Manufacturing
+
+The process starts "Order received".
+
+The tasks "Extract chainsaw specifications from order" and "Create production order in ERP" are executed sequentially.
+
+The process executes the following branches in parallel.
+
+In parallel branch 1: The task "Order parts from online source #1" is executed. The process waits for "Parts from source #1 received".
+
+In parallel branch 2: The task "Order parts from online source #2" is executed. The process waits for "Parts from source #2 received".
+
+In parallel branch 3: The task "Order parts from online source #3" is executed. The process waits for "Parts from source #3 received".
+
+The process then waits until all parallel branches are completed.
+
+The subprocess "Manually inspect all parts" is executed.
+
+Within the subprocess: The step "Perform visual inspection" is performed. The step "Perform functional test" is performed. The step "Document inspection results" is performed.
+
+The decision "All parts passed manual inspection?" is evaluated.
+
+If yes, the decision "Chainsaw type?" is evaluated.
+
+If Electric, the task "Install electric motor" is executed.
+
+Otherwise, the task "Install combustion engine" is executed.
+
+The process executes the following branches in parallel.
+
+In parallel branch 1: The tasks "Assemble first chainsaw" and "Ship first chainsaw to customer" are executed sequentially. The process triggers the signal "First chainsaw shipped".
+
+In parallel branch 2: The process waits for one of the following events to occur. If the event "First chainsaw shipped" occurs, the process waits for "First chainsaw shipped". The process waits for "Customer feedback received". The decision "Customer approved first chainsaw?" is evaluated. If yes, the process executes the following branches in parallel. In parallel branch 1: The process waits for one of the following events to occur. If the event "1 hour" occurs, the process waits for "1 hour". If the event "Remaining chainsaws produced" occurs, the process waits for "Remaining chainsaws produced". The task "Ship remaining chainsaws to customer" is executed. The process ends "Order fulfilled". In parallel branch 2: The task "Assemble remaining chainsaws" is executed. The process triggers the signal "Remaining chainsaws produced". The process then waits until all parallel branches are completed. Otherwise, the task "Refund customer" is executed. The process ends "Order canceled". If the event "1 hour" occurs, the process waits for "1 hour".
+
+The process then waits until all parallel branches are completed.
+
+Otherwise, the task "Order replacement parts" is executed.
+
+The process waits for "Replacement parts received".
+
+The process loops back to the gateway.
